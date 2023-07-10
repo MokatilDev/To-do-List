@@ -33,10 +33,14 @@
     }
 
     body {
-        display: grid;
-        place-items: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        flex-direction: column;
         min-height: 100vh;
         background-color: var(--Color-main);
+        padding: 90px 0px;
     }
 
     .To_Do_Liste {
@@ -49,8 +53,9 @@
     }
 
     .Add__Task {
-        width: 100%;
+        min-width: 100%;
         display: flex;
+        justify-content: space-between;
         background-color: var(--Bg-Button);
         padding: 10px 15px;
         border-radius: 7px;
@@ -100,6 +105,7 @@
         margin-top: 15px;
         border-bottom: 1px solid var(--Color-Button);
         padding-bottom: 10px;
+        gap: 20px;
     }
 
     .Single_Task div {
@@ -114,7 +120,7 @@
         font-weight: 400;
     }
 
-    .check{
+    .check {
         background-color: var(--Bg-Button);
         border: solid 1px var(--Boder);
         color: var(--Color-Button);
@@ -124,7 +130,8 @@
         cursor: pointer;
         transition: all 0.3s;
     }
-    .check.active{
+
+    .check.active {
         background-color: #7245fa;
         border: solid 1px #7245fa;
         color: var(--Color-Normal);
@@ -143,10 +150,59 @@
         border-radius: 7px;
         cursor: pointer;
     }
+
+    .Title {
+        color: var(--Color-Normal);
+        font-size: 3rem;
+        font-weight: 500;
+    }
+
+    .Mokatil {
+        color: var(--Color-Normal);
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    .Mokatil span {
+        color: var(--Color-Normal);
+        text-decoration: underline var(--Color-Basic);
+        transition: all 0.3s;
+    }
+
+    .uil-twitter {
+        color: var(--Color-Button);
+        background-color: var(--Bg-Button);
+        padding: 5px 10px;
+        font-size: 1.2rem;
+        border-radius: 7px;
+        border: 1px solid var(--Boder);
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .uil-twitter:hover {
+        color: var(--Color-Normal);
+        background-color: var(--Color-Basic);
+        border: 1px solid var(--Color-Basic);
+    }
+
+    @media only screen and (max-width:534px) {
+        .To_Do_Liste{
+            min-width: 300px;
+        }
+        .Add__Task input{
+        
+            width: 200px;
+        }
+        .done{
+            width: 130px;
+        }
+    }
 </style>
 
 
 <body>
+    <h1 class="Title">To do list :</h1>
 
     <main class="To_Do_Liste">
 
@@ -161,6 +217,8 @@
 
 
     </main>
+    <h1 class="Mokatil">This Tool By <span>Mokatil Dev</span> <a href="https://twitter.com/Mokatil_Dev"
+            target="_blank"><i class="uil uil-twitter"></i></a></h1>
     <script src="script.js"></script>
 </body>
 
