@@ -45,30 +45,49 @@ function task(name) {
         <h1>${name}</h1>
     </div>
     <div class="Buttons_Delet_Edit">
-        <button  onclick="delet(event)" ><i class="uil uil-trash-alt"></i></button>
-        <button onclick="Edite(event)"><i class="uil uil-edit"></i></button>
+        <i onclick="delet(event)" class="uil uil-trash-alt"></i>
+        <i onclick="Edite(event)" class="uil uil-edit"></i>
     </div>
     </div>`
 }
 
 function delet(e) {
-    e.target.parentElement.parentElement.parentElement.remove()
+    e.target.parentElement.parentElement.remove()
 
 }
 
 function Check(e) {
     e.target.classList.toggle("active")
     e.target.parentElement.classList.toggle("active")
+}
 
+
+function edit(e){
+    e.target.removeAttribute("class")
+    e.target.removeAttribute("onclick")
+    e.target.setAttribute("class","uil uil-edit")
+    e.target.setAttribute("onclick","Edite(event)")
+
+    const input12 = e.target.parentElement.previousElementSibling.lastElementChild.firstChild.value
+    const h1 = e.target.parentElement.previousElementSibling.lastElementChild
+    if(input12.trim() == ""){
+        delet(e)
+
+    }
+    h1.innerHTML = input12
+    
 }
 
 
 
 function Edite(e) {
+
     const input1 = document.createElement("input")
     input1.setAttribute("placeholder", "Write a Task")
+    input1.setAttribute("class","done")
     input1.setAttribute("type", "text")
-    const h1 = e.target.parentElement.parentElement.previousElementSibling.lastElementChild
+    const h1 = e.target.parentElement.previousElementSibling.lastElementChild
+    input1.value = h1.innerHTML 
     input1.style.cssText = `
         background-color: var(--Bg-Button);
         border: 1px solid var(--Boder);
@@ -82,8 +101,8 @@ function Edite(e) {
     `
     h1.innerHTML = ""
     h1.appendChild(input1)
-    e.target.outerHTML = "<i onclick='Edit(this)' class='uil uil-check'></i>"
-    
+    e.target.setAttribute("class","uil uil-check")
+    e.target.setAttribute("onclick","edit(event)")
     
 }
 
