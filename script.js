@@ -42,7 +42,7 @@ function task(name) {
     return `<div class="Single_Task">
     <div>
         <button class="check" onclick="Check(event)"><i class="uil uil-check-circle"></i></button>
-        <h1>${name}</h1>
+        <h1 class="checked">${name}</h1>
     </div>
     <div class="Buttons_Delet_Edit">
         <i onclick="delet(event)" class="uil uil-trash-alt"></i>
@@ -55,48 +55,67 @@ function delet(e) {
     e.target.parentElement.parentElement.remove()
 
 }
-let y = 2
+
 function Check(e) {
-    const h1 = document.querySelector(".Single_Task div h1")
-    if(y%2 == 0){
-        h1.style.textDecoration = "line-through"
-        h1.style.color = "var(--Color-Button)"
-    }else{
-        h1.style.textDecoration = "none"
-        h1.style.color = "var(--Color-Normal)"
+    e.target.parentElement.nextElementSibling.classList.toggle("active")
+    if (e.target.parentElement.nextElementSibling.classList == "checked active") {
+        e.target.parentElement.parentElement.nextElementSibling.children[1].style.cssText = `
+        
+        background-color: var(--Bg-Button);
+        border: solid 1px var(--Boder);
+        color: var(--Color-Button);
+        padding: 2px 10px;
+        font-size: 1.6rem;
+        border-radius: 7px;
+        cursor: not-allowed;
+        `
+    } else {
+        e.target.parentElement.parentElement.nextElementSibling.children[1].style.cssText = `
+        
+        background-color: var(--Color-Basic);
+    border: solid 1px var(--Color-Basic);
+    color: var(--Color-Normal);
+    padding: 2px 10px;
+    font-size: 1.6rem;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.3s;
+        `
     }
     e.target.classList.toggle("active")
     e.target.parentElement.classList.toggle("active")
-    y++
 }
 
 
-function edit(e){
+function edit(e) {
     e.target.removeAttribute("class")
     e.target.removeAttribute("onclick")
-    e.target.setAttribute("class","uil uil-edit")
-    e.target.setAttribute("onclick","Edite(event)")
+    e.target.setAttribute("class", "uil uil-edit")
+    e.target.setAttribute("onclick", "Edite(event)")
 
     const input12 = e.target.parentElement.previousElementSibling.lastElementChild.firstChild.value
     const h1 = e.target.parentElement.previousElementSibling.lastElementChild
-    if(input12.trim() == ""){
+    if (input12.trim() == "") {
         delet(e)
-
     }
     h1.innerHTML = input12
-    
+
 }
 
 
 
 function Edite(e) {
-
+    if (e.target.parentElement.previousElementSibling.children[1].classList == "checked active") {
+        return false;
+    }else{
+        
+    }
     const input1 = document.createElement("input")
     input1.setAttribute("placeholder", "Write a Task")
-    input1.setAttribute("class","done")
+    input1.setAttribute("class", "done")
     input1.setAttribute("type", "text")
     const h1 = e.target.parentElement.previousElementSibling.lastElementChild
-    input1.value = h1.innerHTML 
+    input1.value = h1.innerHTML
     input1.style.cssText = `
         background-color: var(--Bg-Button);
         border: 1px solid var(--Boder);
@@ -110,9 +129,9 @@ function Edite(e) {
     `
     h1.innerHTML = ""
     h1.appendChild(input1)
-    e.target.setAttribute("class","uil uil-check")
-    e.target.setAttribute("onclick","edit(event)")
-    
+    e.target.setAttribute("class", "uil uil-check")
+    e.target.setAttribute("onclick", "edit(event)")
+
 }
 
 

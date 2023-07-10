@@ -8,198 +8,9 @@
     <title>To do Liste</title>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <script src="https://kit.fontawesome.com/a4c5bedc28.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
 
 </head>
-
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-    :root {
-        --Color-main: rgb(15, 15, 15);
-        --Color-Normal: #fff;
-        --Color-Button: #7a7474;
-        --Bg-Button: #1C1C1C;
-        --Boder: #3E3E3E;
-        --Color-Basic: #7245FA;
-        
-    }
-
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        font-family: "Poppins";
-        user-select: none;
-        -webkit-tap-highlight-color: transparent;
-    }
-
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-        flex-direction: column;
-        min-height: 100vh;
-        background-color: var(--Color-main);
-        padding: 90px 0px;
-    }
-
-    .To_Do_Liste {
-        min-height: 60vh;
-        min-width: 500px;
-        background-color: var(--Bg-Button);
-        border: 1px var(--Boder) solid;
-        border-radius: 7px;
-        padding: 20px 20px;
-    }
-
-    .Add__Task {
-        min-width: 100%;
-        display: flex;
-        justify-content: space-between;
-        background-color: var(--Bg-Button);
-        padding: 10px 15px;
-        border-radius: 7px;
-        border: 1px solid var(--Boder);
-
-    }
-
-    .Add__Task input {
-        background-color: var(--Bg-Button);
-        border: 0;
-        padding: 8px 10px;
-        padding-left: 10px;
-        outline: none;
-        border-radius: 7px;
-        color: var(--Color-Normal);
-        font-size: 1.2rem;
-        width: 350px;
-    }
-
-    .Add__Task button {
-        color: var(--Color-Button);
-        border: 1px solid var(--Boder);
-        padding: 8px 20px;
-        cursor: pointer;
-        border-radius: 7px;
-        text-transform: capitalize;
-        font-size: 1rem;
-        cursor: not-allowed;
-        background-color: var(--Bg-Button);
-        transition: all 0.3s;
-
-        /* color: var(--Color-Normal);
-        border: 1px solid var(--Color-Basic);
-        padding: 8px 20px;
-        cursor: pointer;
-        border-radius: 7px;
-        text-transform: capitalize;
-        font-size: 1rem;
-        cursor: pointer;
-        background-color: var(--Color-Basic); */
-    }
-
-    .Single_Task {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 15px;
-        border-bottom: 1px solid var(--Color-Button);
-        padding-bottom: 10px;
-        gap: 20px;
-    }
-
-    .Single_Task div {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .Single_Task div h1 {
-        color: var(--Color-Normal);
-        font-size: 1.4rem;
-        font-weight: 400;
-    }
-
-    .check {
-        background-color: var(--Bg-Button);
-        border: solid 1px var(--Boder);
-        color: var(--Color-Button);
-        padding: 2px 10px;
-        font-size: 1.6rem;
-        border-radius: 7px;
-        cursor: pointer;
-        transition: all 0.3s;
-    }
-
-    .check.active {
-        background-color: #7245fa;
-        border: solid 1px #7245fa;
-        color: var(--Color-Normal);
-        padding: 2px 10px;
-        font-size: 1.6rem;
-        border-radius: 7px;
-        cursor: pointer;
-    }
-
-    .Buttons_Delet_Edit i {
-        background-color: var(--Color-Basic);
-        border: solid 1px var(--Color-Basic);
-        color: var(--Color-Normal);
-        padding: 2px 10px;
-        font-size: 1.6rem;
-        border-radius: 7px;
-        cursor: pointer;
-    }
-
-    .Title {
-        color: var(--Color-Normal);
-        font-size: 3rem;
-        font-weight: 500;
-    }
-
-    .Mokatil {
-        color: var(--Color-Normal);
-        font-size: 1rem;
-        font-weight: 400;
-    }
-
-    .Mokatil span {
-        color: var(--Color-Normal);
-        text-decoration: underline var(--Color-Basic);
-        transition: all 0.3s;
-    }
-
-    .uil-twitter {
-        color: var(--Color-Button);
-        background-color: var(--Bg-Button);
-        padding: 5px 10px;
-        font-size: 1.2rem;
-        border-radius: 7px;
-        border: 1px solid var(--Boder);
-        cursor: pointer;
-        transition: all 0.3s;
-    }
-    
-    .uil-twitter:hover {
-        color: var(--Color-Normal);
-        background-color: var(--Color-Basic);
-        border: 1px solid var(--Color-Basic);
-    }
-
-    @media only screen and (max-width:534px) {
-        .To_Do_Liste{
-            min-width: 300px;
-        }
-        .Add__Task input{
-        
-            width: 200px;
-        }
-        .done{
-            width: 130px;
-        }
-    }
-</style>
 
 
 <body>
@@ -218,8 +29,11 @@
 
 
     </main>
-    <h1 class="Mokatil">This Tool By <span>Mokatil Dev</span> <a href="https://twitter.com/Mokatil_Dev"
-            target="_blank"><i class="uil uil-twitter"></i></a></h1>
+    <h1 class="Mokatil">This Tool By <span>Mokatil Dev</span>
+        <a href="https://twitter.com/Mokatil_Dev" target="_blank">
+            <i class="uil uil-twitter"></i>
+        </a>
+    </h1>
     <script src="script.js"></script>
 </body>
 
