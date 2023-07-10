@@ -55,10 +55,19 @@ function delet(e) {
     e.target.parentElement.parentElement.remove()
 
 }
-
+let y = 2
 function Check(e) {
+    const h1 = document.querySelector(".Single_Task div h1")
+    if(y%2 == 0){
+        h1.style.textDecoration = "line-through"
+        h1.style.color = "var(--Color-Button)"
+    }else{
+        h1.style.textDecoration = "none"
+        h1.style.color = "var(--Color-Normal)"
+    }
     e.target.classList.toggle("active")
     e.target.parentElement.classList.toggle("active")
+    y++
 }
 
 
