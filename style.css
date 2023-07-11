@@ -107,7 +107,7 @@ body {
     font-weight: 400;
 }
 
-.check {
+.check{
     background-color: var(--Bg-Button);
     border: solid 1px var(--Boder);
     color: var(--Color-Button);
@@ -118,7 +118,7 @@ body {
     transition: all 0.3s;
 }
 
-.check.active {
+.check.uil.uil-check-circle.active{
     background-color: #7245fa;
     border: solid 1px #7245fa;
     color: var(--Color-Normal);
@@ -137,8 +137,6 @@ body {
     border-radius: 7px;
     cursor: pointer;
     transition: all 0.3s;
-
-    
 }
 
 .Title {

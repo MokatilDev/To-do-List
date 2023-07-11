@@ -41,7 +41,7 @@ input.addEventListener("input", () => {
 function task(name) {
     return `<div class="Single_Task">
     <div>
-        <button class="check" onclick="Check(event)"><i class="uil uil-check-circle"></i></button>
+        <i onclick="Check(event)" class="check uil uil-check-circle"></i>
         <h1 class="checked">${name}</h1>
     </div>
     <div class="Buttons_Delet_Edit">
@@ -57,10 +57,9 @@ function delet(e) {
 }
 
 function Check(e) {
-    e.target.parentElement.nextElementSibling.classList.toggle("active")
-    if (e.target.parentElement.nextElementSibling.classList == "checked active") {
-        e.target.parentElement.parentElement.nextElementSibling.children[1].style.cssText = `
-        
+    e.target.nextElementSibling.classList.toggle("active")
+    if (e.target.nextElementSibling.classList == "checked active") {
+        e.target.parentElement.nextElementSibling.children[1].style.cssText = `
         background-color: var(--Bg-Button);
         border: solid 1px var(--Boder);
         color: var(--Color-Button);
@@ -70,16 +69,15 @@ function Check(e) {
         cursor: not-allowed;
         `
     } else {
-        e.target.parentElement.parentElement.nextElementSibling.children[1].style.cssText = `
-        
+        e.target.parentElement.nextElementSibling.children[1].style.cssText = `
         background-color: var(--Color-Basic);
-    border: solid 1px var(--Color-Basic);
-    color: var(--Color-Normal);
-    padding: 2px 10px;
-    font-size: 1.6rem;
-    border-radius: 7px;
-    cursor: pointer;
-    transition: all 0.3s;
+        border: solid 1px var(--Color-Basic);
+        color: var(--Color-Normal);
+        padding: 2px 10px;
+        font-size: 1.6rem;
+        border-radius: 7px;
+        cursor: pointer;
+        transition: all 0.3s;
         `
     }
     e.target.classList.toggle("active")
